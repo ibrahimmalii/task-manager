@@ -17,6 +17,11 @@ class TaskController extends Controller
         return $this->taskService->index();
     }
 
+    public function show(Task $task): TaskResource
+    {
+        return new TaskResource($task);
+    }
+
     public function store(StoreTaskRequest $request)
     {
         return $this->taskService->store($request->validated());
